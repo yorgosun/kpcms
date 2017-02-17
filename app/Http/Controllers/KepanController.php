@@ -20,9 +20,21 @@ class KepanController extends Controller
 								'辛'=>'H',
 								'壬'=>'I',
 								'癸'=>'J',
+								'子'=>'K',
+								'丑'=>'L',
+								'寅'=>'M',
+								'卯'=>'N',
+								'辰'=>'O',
+								'巳'=>'P',
+								'午'=>'Q',
+								'未'=>'R',
+								'申'=>'S',
+								'酉'=>'T',
+								'戌'=>'U',
+								'亥'=>'V'
 							);
 
-	private $levelname = array('甲','乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸');
+	private $levelname = array('甲','乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸','子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥');
 
 	public function __construct()
     {
@@ -52,7 +64,7 @@ class KepanController extends Controller
 				$output_str = $parent->levelname.$parent->sequence.' '.$parent->title.' > '.$output_str;
 			}
 			$ret = array_search($main_parent->levelname, $this->levelname);
-			if ($ret < 9) {
+			if ($ret < 21) {
 				$next_levelname = $this->levelname[$ret+1];
 			} else {
 				$next_levelname = '';
