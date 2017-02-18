@@ -27,7 +27,8 @@
 						<td>
 							<a href="/sutras/{{ $sutra->id }}/edit" class="btn btn-default btn-sm">编辑</a>
 							<a href="/sutras/{{ $sutra->id }}/kepans" class="btn btn-default btn-sm">编辑科判</a>
-							<a href="/kepan-preview/{{ $sutra->id }}" class="btn btn-default btn-sm">预览科判</a></td>
+							<a href="/kepan-preview/{{ $sutra->id }}" class="btn btn-default btn-sm">预览科判</a>
+							<a href="/kepan-view/{{ $sutra->id }}" class="btn btn-default btn-sm">实际展示科判</a></td>
 					</tr>
 				@endforeach
 

@@ -35,4 +35,5 @@ Route::get('/kepans/{kpid}/edit', 'KepanController@edit');
 Route::put('/kepans/{kpid}', 'KepanController@update');
 Route::delete('/kepans/{kpid}', 'KepanController@destroy');
 
-Route::get('/kepan-preview/{sutraid}', 'KepanPreviewController@index');
+Route::get('/kepan-preview/{sutraid}', 'KepanPreviewController@preview')->middleware('auth');
+Route::get('/kepan-view/{sutraid}', 'KepanPreviewController@index');

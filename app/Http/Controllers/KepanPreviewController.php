@@ -14,7 +14,7 @@ class KepanPreviewController extends Controller
 	{
 		$sutra = Sutra::find($sutraid);
 		$kepanlist = $this->getChildNodeInfo(0, $sutraid);
-		return view('kepanpreview.index', ['kepanlist'=>$kepanlist, 'sutra'=>$sutra]);
+		return view('kepanpreview.view', ['kepanlist'=>$kepanlist, 'sutra'=>$sutra]);
 	}
 
 	private function getChildNodeInfo($kpid, $sutraid)
@@ -35,5 +35,12 @@ class KepanPreviewController extends Controller
 		}
 
 		return $output_array;
+	}
+
+	public function preview($sutraid)
+	{
+		$sutra = Sutra::find($sutraid);
+		$kepanlist = $this->getChildNodeInfo(0, $sutraid);
+		return view('kepanpreview.index', ['kepanlist'=>$kepanlist, 'sutra'=>$sutra]);
 	}
 }
