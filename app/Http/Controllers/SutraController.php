@@ -16,7 +16,7 @@ class SutraController extends Controller
 
 	public function index()
 	{
-		$allsutra = Sutra::all();
+		$allsutra = Sutra::orderBy('pinid', 'asc')->get();
 
 		return view('sutra.list', ['sutras' => $allsutra]);
 	}
@@ -34,6 +34,7 @@ class SutraController extends Controller
 		$sutra->title = $request->input('title');
 		$sutra->hui = $request->input('hui');
 		$sutra->pin = $request->input('pin');
+		$sutra->pinid = $request->input('pinid');
 		$sutra->juan = '';
 		$sutra->save();
 
@@ -54,6 +55,7 @@ class SutraController extends Controller
 		$sutra->title = $request->input('title');
 		$sutra->hui = $request->input('hui');
 		$sutra->pin = $request->input('pin');
+		$sutra->pinid = $request->input('pinid');
 		$sutra->juan = '';
 		$sutra->save();
 

@@ -37,7 +37,7 @@
 		<div class="col-md-12">
 			<ul>
 				@foreach ($kepanlist as $kepan)
-					<li class="indent-{{$kepan->levelnumber}}">{{$kepan->levelname}}{{$kepan->sequence}} {{$kepan->title}} <span class="content">{{$kepan->content}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/kepans/{{$kepan->id}}/edit" class="btn btn-default btn-xs">编辑</a><a href="/sutras/{{ $sutra->id }}/kepans/{{$kepan->id}}/create" class="btn btn-default btn-xs">添加子节点</a></li>
+					<li class="indent-{{$kepan->levelnumber}}">{{$kepan->levelname}}{{$kepan->sequence}} {{$kepan->title}} ({{$kepan->juan}}) <span class="content">{{$kepan->content}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/kepans/{{$kepan->id}}/edit" class="btn btn-default btn-xs">编辑</a><a href="/sutras/{{ $sutra->id }}/kepans/{{$kepan->id}}/create" class="btn btn-default btn-xs">添加子节点</a></li>
 				@endforeach
 			</ul>
 		</div>

@@ -50,6 +50,16 @@
 						>
 					</div>
 				</div>
+				<div class="form-group">
+					<label class="col-md-2 text-right" for="pinid">品编号：</label>
+					<div class="col-md-10">
+						<input type="text" class="form-control" name="pinid" id="pinid"
+						@if(isset($edit) && $edit == 1)
+							value="{{$sutra->pinid}}"
+						@endif
+						>
+					</div>
+				</div>
 
 				<div class="col-md-12 text-center">
 					<button type="submit" class="btn btn-primary">保存</button>

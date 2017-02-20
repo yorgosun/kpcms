@@ -17,6 +17,7 @@
 					<th>佛经</th>
 					<th>会名</th>
 					<th>品名</th>
+					<th>品编号</th>
 					<th>操作</th>
 				</tr>
 				@foreach ($sutras as $sutra)
@@ -24,6 +25,7 @@
 						<td>{{ $sutra->title }}</td>
 						<td>{{ $sutra->hui }}</td>
 						<td>{{ $sutra->pin }}</td>
+						<td>{{ $sutra->pinid }}</td>
 						<td>
 							<a href="/sutras/{{ $sutra->id }}/edit" class="btn btn-default btn-sm">编辑</a>
 							<a href="/sutras/{{ $sutra->id }}/kepans" class="btn btn-default btn-sm">编辑科判</a>
