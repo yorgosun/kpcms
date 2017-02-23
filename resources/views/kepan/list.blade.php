@@ -19,7 +19,7 @@
 					<th>上级</th>
 					<th>级别编号</th>
 					<th>标题</th>
-					<th>经文</th>
+					<th style="width: 40%;">经文</th>
 					<th>操作</th>
 				</tr>
 				@foreach ($kepan as $item)
@@ -31,7 +31,7 @@
 						@endif
 						</td>
 						<td>{{$item->levelname}}{{$item->sequence}}</td>
-						<td>{{$item->title}}</td>
+						<td><a href="/kepans/{{$item->id}}">{{$item->title}}</a></td>
 						<td>{{$item->content}}</td>
 						<td><a href="/kepans/{{$item->id}}/edit" class="btn btn-default btn-sm">编辑</a>
 							<a href="/sutras/{{ $sutra->id }}/kepans/{{$item->id}}/create" class="btn btn-primary btn-sm">添加子节点</a>

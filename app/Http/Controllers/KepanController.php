@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Kepan;
 use App\Models\Sutra;
+use App\Models\Shuwen;
 use Auth;
 
 class KepanController extends Controller
@@ -106,6 +107,31 @@ class KepanController extends Controller
 
 		return redirect('/sutras/'.$request->input('sutraid').'/kepans');
 
+	}
+
+	public function show($kpid)
+	{
+		$kepan = Kepan::find($kpid);
+		$sutra = $kepan->sutra;
+
+		$parent_id = $kepan->parent_id;
+		$main_parent = $kepan->parent;
+
+		if ($parent_id>0) {
+			$parent = $main_parent;
+			$output_str = $parent->levelname.$parent->sequence.' '.$parent->title;
+			while ($parent->parent_id > 0) {
+				$parent = $parent->parent;
+				$output_str = $parent->levelname.$parent->sequence.' '.$parent->title.' > '.$output_str;
+			}
+		} else {
+			$output_str = '顶级';
+			$main_parent = null;
+		}
+
+		$shu = Shuwen::where('kepan_id', $kpid)->orderBy('sequence', 'asc')->get();
+
+		return view('kepan.view', ['sutra'=>$sutra, 'parent'=>$main_parent, 'parent_id'=>$parent_id, 'parent_str'=>$output_str, 'edit'=>1, 'kepan'=>$kepan, 'shu'=>$shu]);
 	}
 
 	public function edit($kpid)
