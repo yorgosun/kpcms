@@ -39,6 +39,8 @@ Route::get('/kepans/{kpid}/shuwens/create', 'ShuwenController@create');
 Route::post('/shuwens', 'ShuwenController@store');
 Route::get('/shuwens/{swid}/edit', 'ShuwenController@edit');
 Route::put('/shuwens/{swid}', 'ShuwenController@update');
+Route::delete('/shuwens/{swid}', 'ShuwenController@destroy');
+
 
 
 Route::get('/kepan-preview/{sutraid}', 'KepanPreviewController@preview')->middleware('auth');

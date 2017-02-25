@@ -17,4 +17,9 @@ class Kepan extends Model
 	{
 		return $this->belongsTo('App\Models\Sutra');
 	}
+
+	public function shuwens()
+	{
+		return $this->hasMany('App\Models\Shuwen');
+	}
 }

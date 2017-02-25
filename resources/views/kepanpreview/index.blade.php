@@ -25,6 +25,8 @@
 		.indent-U {margin-left:60em;}
 		.indent-V {margin-left:63em;}
 		.content {color: lightgray;}
+		.shu {text-indent: 2em;}
+		.chao {text-indent: 4em;}
 	</style>
 @endsection
 
@@ -37,7 +39,13 @@
 		<div class="col-md-12">
 			<ul>
 				@foreach ($kepanlist as $kepan)
-					<li class="indent-{{$kepan->levelnumber}}">{{$kepan->levelname}}{{$kepan->sequence}} {{$kepan->title}} ({{$kepan->juan}}) <span class="content">{{$kepan->content}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/kepans/{{$kepan->id}}/edit" class="btn btn-default btn-xs">编辑</a><a href="/sutras/{{ $sutra->id }}/kepans/{{$kepan->id}}/create" class="btn btn-default btn-xs">添加子节点</a></li>
+					<li class="indent-{{$kepan->levelnumber}}"><a href="/kepans/{{$kepan->id}}">{{$kepan->levelname}}{{$kepan->sequence}} {{$kepan->title}}</a> ({{$kepan->juan}})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/kepans/{{$kepan->id}}/edit" class="btn btn-default btn-xs">编辑</a><a href="/sutras/{{ $sutra->id }}/kepans/{{$kepan->id}}/create" class="btn btn-default btn-xs">添加子节点</a>
+						<p class="content">{{$kepan->content}}</p>
+						@foreach ($kepan->shuwens as $shuwen)
+							<p class="shu">【疏】：{{ $shuwen->shu }}</p>
+							<p class="chao">【钞】：{{ $shuwen->chao }}</p>
+						@endforeach
+					</li>
 				@endforeach
 			</ul>
 		</div>

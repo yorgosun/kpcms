@@ -50,7 +50,7 @@
 				<div class="row">
 					<div class="col-md-10 col-md-offset-2">
 						<a href="/shuwens/{{$item->id}}/edit" class="btn btn-default btn-xs">编辑</a>
-						<a href="#" class="btn btn-danger btn-xs">删除</a>
+						<a href="#" class="btn btn-danger btn-xs btn-delete" id="{{$item->id}}">删除</a>
 					</div>
 				</div>
 				<hr>
@@ -77,4 +77,25 @@
 			</form>
 		</div>
 	</div>
+@endsection
+
+@section('js')
+	<script src="/js/jquery.min.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.btn-delete').click(function(){
+					var shuwenid = $(this).attr('id');
+					var ret = confirm('确认删除？');
+					if (ret) {
+						$.post('/shuwens/'+shuwenid,
+							{_token: '{{csrf_token()}}', _method:'DELETE'},
+							function(ret){
+								location.reload();
+							});
+					}
+
+					return false;
+			});
+		});
+	</script>
 @endsection
