@@ -10,37 +10,37 @@ class KepanPreviewController extends Controller
 {
     //
 
-	public function index($sutraid)
-	{
-		$sutra = Sutra::find($sutraid);
-		$kepanlist = $this->getChildNodeInfo(0, $sutraid);
-		return view('kepanpreview.view', ['kepanlist'=>$kepanlist, 'sutra'=>$sutra]);
-	}
+    public function index($sutraid)
+    {
+        $sutra = Sutra::find($sutraid);
+        $kepanlist = $this->getChildNodeInfo(0, $sutraid);
+        return view('kepanpreview.view', ['kepanlist'=>$kepanlist, 'sutra'=>$sutra]);
+    }
 
-	private function getChildNodeInfo($kpid, $sutraid)
-	{
-		$output_array = array();
+    private function getChildNodeInfo($kpid, $sutraid)
+    {
+        $output_array = array();
 
-		$ret = Kepan::where('sutra_id', $sutraid)->where('parent_id', $kpid)->orderBy('sequence')->get();
-		if (empty($ret)) {
-			return false;
-		}
+        $ret = Kepan::where('sutra_id', $sutraid)->where('parent_id', $kpid)->orderBy('sequence', 'asc')->get();
+        if (empty($ret)) {
+            return false;
+        }
 
-		foreach ($ret as $item) {
-			$output_array[] = $item;
-			$tmp = $this->getChildNodeInfo($item->id, $sutraid);
-			if (is_array($tmp)) {
-				$output_array = array_merge($output_array, $tmp);
-			}
-		}
+        foreach ($ret as $item) {
+            $output_array[] = $item;
+            $tmp = $this->getChildNodeInfo($item->id, $sutraid);
+            if (is_array($tmp)) {
+                $output_array = array_merge($output_array, $tmp);
+            }
+        }
 
-		return $output_array;
-	}
+        return $output_array;
+    }
 
-	public function preview($sutraid)
-	{
-		$sutra = Sutra::find($sutraid);
-		$kepanlist = $this->getChildNodeInfo(0, $sutraid);
-		return view('kepanpreview.index', ['kepanlist'=>$kepanlist, 'sutra'=>$sutra]);
-	}
+    public function preview($sutraid)
+    {
+        $sutra = Sutra::find($sutraid);
+        $kepanlist = $this->getChildNodeInfo(0, $sutraid);
+        return view('kepanpreview.index', ['kepanlist'=>$kepanlist, 'sutra'=>$sutra]);
+    }
 }
