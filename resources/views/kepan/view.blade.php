@@ -72,7 +72,7 @@
 				</div>
 				<div class="col-md-12 text-center">
 					<button type="submit" class="btn btn-primary">添加疏文</button>
-					<a href="/sutras/{{$sutra->id}}/kepans" class="btn btn-default">取消返回</a>
+					<a href="/kepan-preview/{{$sutra->id}}#{{$kepan->id}}" class="btn btn-default">返回</a>
 				</div>
 			</form>
 		</div>

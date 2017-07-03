@@ -59,7 +59,7 @@
 						>
 					</div>
 				</div>
-				
+
 				<div class="form-group">
 					<label class="col-md-2 text-right" for="juan">卷：</label>
 					<div class="col-md-10">
@@ -93,7 +93,7 @@
 				</div>
 				<div class="col-md-12 text-center">
 					<button type="submit" class="btn btn-primary">保存</button>
-					<a href="/sutras/{{$sutra->id}}/kepans" class="btn btn-default">取消返回</a>
+					<a href="/kepan-preview/{{ $sutra->id }}#{{ $kepan->id }}" class="btn btn-default">返回</a>
 				</div>
 
 			</form>

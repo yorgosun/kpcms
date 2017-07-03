@@ -39,6 +39,7 @@
 		<div class="col-md-12">
 			<ul>
 				@foreach ($kepanlist as $kepan)
+                    <a name="{{$kepan->id}}"></a>
 					<li class="indent-{{$kepan->levelnumber}}"><a href="/kepans/{{$kepan->id}}">{{$kepan->levelname}}{{$kepan->sequence}} {{$kepan->title}}</a> ({{$kepan->juan}})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/kepans/{{$kepan->id}}/edit" class="btn btn-default btn-xs">编辑</a><a href="/sutras/{{ $sutra->id }}/kepans/{{$kepan->id}}/create" class="btn btn-default btn-xs">添加子节点</a>
 						<p class="content">{{$kepan->content}}</p>
 						@foreach ($kepan->shuwens as $shuwen)
