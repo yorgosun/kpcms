@@ -93,7 +93,11 @@
 				</div>
 				<div class="col-md-12 text-center">
 					<button type="submit" class="btn btn-primary">保存</button>
+                    @if(isset($edit) && $edit == 1)
 					<a href="/kepan-preview/{{ $sutra->id }}#{{ $kepan->id }}" class="btn btn-default">返回</a>
+                    @else
+                    <a href="/kepan-preview/{{ $sutra->id }}#{{ $parent_id }}" class="btn btn-default">返回</a>    
+                    @endif
 				</div>
 
 			</form>
