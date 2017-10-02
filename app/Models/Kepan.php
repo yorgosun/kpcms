@@ -8,18 +8,18 @@ class Kepan extends Model
 {
     //
 
-	public function parent()
-	{
-		return $this->belongsTo('App\Models\Kepan', 'parent_id');
-	}
+    public function parent()
+    {
+        return $this->belongsTo('App\Models\Kepan', 'parent_id');
+    }
 
-	public function sutra()
-	{
-		return $this->belongsTo('App\Models\Sutra');
-	}
+    public function sutra()
+    {
+        return $this->belongsTo('App\Models\Sutra');
+    }
 
-	public function shuwens()
-	{
-		return $this->hasMany('App\Models\Shuwen');
-	}
+    public function shuwens()
+    {
+        return $this->hasMany('App\Models\Shuwen');
+    }
 }

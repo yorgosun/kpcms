@@ -25,7 +25,11 @@
 				@foreach ($kepan as $item)
 					<tr>
 						<td>@if($item->parent_id > 0)
-							{{$item->parent->levelname}}{{$item->parent->sequence}} {{$item->parent->title}}
+                            @if(isset($item->parent))
+							    {{$item->parent->levelname}}{{$item->parent->sequence}} {{$item->parent->title}}
+                            @else
+                                <p style="color:red;">父级节点异常</p>
+                            @endif
 						@else
 							顶级
 						@endif
