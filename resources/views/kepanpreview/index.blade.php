@@ -24,6 +24,13 @@
 		.indent-T {margin-left:57em;}
 		.indent-U {margin-left:60em;}
 		.indent-V {margin-left:63em;}
+        .indent-W {margin-left:66em;}
+        .indent-X {margin-left:69em;}
+        .indent-Y {margin-left:72em;}
+        .indent-Z {margin-left:75em;}
+        .indent-a {margin-left:78em;}
+        .indent-b {margin-left:81em;}
+        .indent-c {margin-left:84em;}
 		.content {color: lightgray;}
 		.shu {text-indent: 2em;}
 		.chao {text-indent: 4em;}
