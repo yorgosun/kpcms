@@ -473,6 +473,13 @@ window.classie = {
             case '酉': sn = 20; break;
             case '戌': sn = 21; break;
             case '亥': sn = 22; break;
+            case '地': sn = 23; break;
+            case '水': sn = 24; break;
+            case '火': sn = 25; break;
+            case '风': sn = 26; break;
+            case '空': sn = 27; break;
+            case '根': sn = 28; break;
+            case '识': sn = 29; break;
             default:
                 console.log('Wrong index ' + idx.innerHTML);
         }
